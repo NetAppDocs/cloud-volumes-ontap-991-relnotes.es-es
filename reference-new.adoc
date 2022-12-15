@@ -1,0 +1,167 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: Cloud Volumes ONTAP 9.9.1 incluye varias funciones y mejoras nuevas. 
+---
+= Novedades de Cloud Volumes ONTAP 9.9.1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 9.9.1 incluye varias funciones y mejoras nuevas.
+
+Las últimas versiones de BlueXP también incluyen funciones y mejoras adicionales. Consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Notas de la versión de BlueXP"^] para obtener más detalles.
+
+
+
+== Ya no se admiten las instancias c4, m4 y r4 (28 de octubre de 2022)
+
+En AWS, los tipos de instancias c4, m4 y r4 EC2 ya no son compatibles con Cloud Volumes ONTAP. Si tiene un sistema existente que se ejecuta en un tipo de instancia c4, m4 o r4, debe cambiar a un tipo de instancia en la familia de instancias c5, m5 o r5.
+
+link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html["Aprenda a cambiar el tipo de instancia de EC2 para Cloud Volumes ONTAP"^].
+
+Consulte link:https://mysupport.netapp.com/info/communications/ECMLP2880231.html["Soporte de NetApp"^] para obtener más información acerca del fin de la disponibilidad y la compatibilidad con estos tipos de instancia.
+
+
+
+== 9.9.1 P8 (15 de mayo de 2022)
+
+El parche 9.9.1 P8 ya está disponible para Cloud Volumes ONTAP en Microsoft Azure si tiene un conector que ejecuta la versión 3.9.13 o posterior. BlueXP le solicitará que actualice sus sistemas existentes a esta versión de revisión.
+
+https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.9.1P8["Consulte la lista de errores corregidos en el parche P8"^] (Se requiere inicio de sesión en el sitio de soporte de NetApp).
+
+
+
+== 9.9.1 P7 (21 de febrero de 2022)
+
+El parche 9.9.1 P7 ahora está disponible para Cloud Volumes ONTAP en Microsoft Azure si tiene un conector que ejecuta la versión 3.9.15 o posterior. BlueXP le solicitará que actualice sus sistemas existentes a esta versión de revisión.
+
+https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.9.1P7["Consulte la lista de errores corregidos en el parche P7"^] (Se requiere inicio de sesión en el sitio de soporte de NetApp).
+
+
+
+== 9.9.1 parches (3 de febrero de 2022)
+
+Hay dos parches nuevos disponibles para Cloud Volumes ONTAP:
+
+* 9.9.1 P6 en AWS y Google Cloud
+* 9.9.1 P3 en Microsoft Azure
+
+
+BlueXP le solicitará que actualice sus sistemas existentes a estas versiones de revisión.
+
+* https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.9.1P6["Consulte la lista de errores corregidos en el parche P6"^] (Se requiere inicio de sesión en el sitio de soporte de NetApp)
+* https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.9.1P3["Consulte la lista de errores corregidos en el parche P3"^] (Se requiere inicio de sesión en el sitio de soporte de NetApp)
+
+
+
+
+== 9.9.1 GA (21 de julio de 2021)
+
+Ya está disponible la versión General Availability (GA) de Cloud Volumes ONTAP 9.9.1. La versión de GA incluye correcciones de errores.
+
+BlueXP le pedirá que actualice los sistemas existentes que ejecutan cualquiera de las siguientes versiones: 9.9.1 Release Candidate, 9.9.0, o 9.8.
+
+
+
+== Actualización 9.9.1 (7 de julio de 2021)
+
+Los siguientes cambios se introdujeron con la versión BlueXP 3.9.8.
+
+* Hay nuevos métodos de carga disponibles para Cloud Volumes ONTAP.
++
+** *BYOL* basado en la capacidad: Una licencia basada en la capacidad le permite pagar por Cloud Volumes ONTAP por TIB de capacidad. La licencia está asociada con su cuenta de NetApp y le permite crear varios sistemas de Cloud Volumes ONTAP, siempre que haya suficiente capacidad disponible a través de la licencia. Las licencias basadas en capacidad están disponibles en forma de paquete, bien _Essentials_ o _Professional_.
+** *Oferta de freemium*: Freemium le permite utilizar todas las funcionalidades de Cloud Volumes ONTAP de forma gratuita en NetApp (todavía se aplican cargos por proveedor de cloud). Está limitado a 500 GIB de capacidad asignada por sistema y no hay ningún contrato de soporte. Puede tener hasta 10 sistemas Freemium.
++
+link:concept-licensing.html["Obtenga más información sobre estas opciones de licencia"].
+
+
+
+* En AWS, Cloud Volumes ONTAP ahora es compatible con el tipo de instancia m5dn.24xLarge con los siguientes métodos de carga: PAYGO Premium, licencias basadas en capacidad (BYOL) y licencias basadas en nodo (BYOL).
+* En Google Cloud, Cloud Volumes ONTAP ahora admite discos persistentes equilibrados (pd-balanceados). Estos SSD equilibran el rendimiento y el coste proporcionando una tasa de IOPS inferior por GIB.
+* El tipo de máquina personalizado-4-16384 ya no es compatible con los nuevos sistemas Cloud Volumes ONTAP en Google Cloud.
++
+Si ya tiene un sistema en funcionamiento en este tipo de máquina, puede seguir utilizándolo, pero le recomendamos cambiar al tipo de máquina n2-standard-4.
+
+
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Más información sobre las novedades de BlueXP"^].
+
+
+
+== Actualización 9.9.1 (3 de junio de 2021)
+
+La reciente versión BlueXP 3.9.7 introdujo la compatibilidad con un nuevo paquete profesional que le permite empaquetar Cloud Volumes ONTAP y Cloud Backup Service utilizando un contrato anual del mercado AWS.
+
+link:reference-configs-aws.html["Obtenga más información sobre esta opción de licencia."]
+
+
+
+== Candidato a la versión 9.9.1 (24 de mayo de 2021)
+
+La candidata a la versión 9.9.1 de Cloud Volumes ONTAP ya está disponible en AWS, Azure y Google Cloud Platform.
+
+Además de las funciones incluidas con https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9.9.1"^], Esta versión de Cloud Volumes ONTAP incluye lo siguiente:
+
+* <<Compatibilidad de ONTAP S3 en Azure>>
+* <<Rendimiento mejorado en AWS con alta velocidad de escritura>>
+* <<Disco de arranque io2 en AWS>>
+
+
+
+
+=== Compatibilidad de ONTAP S3 en Azure
+
+Ahora puede proporcionar almacenamiento de objetos S3 desde Cloud Volumes ONTAP en Azure. Cloud Volumes ONTAP para Microsoft Azure es compatible con S3 como opción para el almacenamiento de escalado horizontal, además de protocolos clásicos basados en archivos, como NFS y SMB.
+
+Tenga en cuenta lo siguiente:
+
+* El principal caso práctico para ONTAP S3 con Cloud Volumes ONTAP es un almacén de objetos de uso general.
+* En este momento, el protocolo S3 no es compatible con Cloud Volumes ONTAP en AWS ni con Google Cloud.
+* BlueXP no ofrece funcionalidades de gestión para la función ONTAP S3.
+
+
+Usar la CLI es la práctica recomendada para configurar el acceso del cliente S3 desde Cloud Volumes ONTAP. Para obtener más información, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["Guía completa de configuración de S3"^].
+
+
+
+=== Rendimiento mejorado en AWS con alta velocidad de escritura
+
+El rendimiento de Cloud Volumes ONTAP se ha mejorado cuando https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-write-speed.html["alta velocidad de escritura"^] está habilitado en un tipo de instancia compatible.
+
+
+
+=== Disco de arranque io2 en AWS
+
+En AWS, el disco de arranque de un nuevo sistema Cloud Volumes ONTAP ahora es un volumen SSD (io2) aprovisionado por IOPS. los volúmenes io2 ofrecen más fiabilidad que los volúmenes io1, que se utilizaban anteriormente para discos de arranque.
+
+
+
+== Versión necesaria del conector BlueXP
+
+El conector BlueXP debe estar ejecutando la versión 3.9.6 o posterior para implementar nuevos sistemas Cloud Volumes ONTAP 9.9.1 y actualizar los sistemas existentes a la versión 9.9.1.
+
+
+
+== Notas de actualización
+
+* Las actualizaciones de Cloud Volumes ONTAP deben completarse desde BlueXP. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
+* Puede actualizar a Cloud Volumes ONTAP 9.9.1 desde la versión 9.9.0 y desde la versión 9.8. BlueXP le solicitará que actualice sus sistemas Cloud Volumes ONTAP 9.9.0 y 9.8 existentes a la versión 9.9.1.
++
+http://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html["Obtenga información sobre cómo actualizar cuando BlueXP lo notifique"^].
+
+* La actualización de un único sistema de nodos desconecta el sistema hasta 25 minutos, durante los cuales se interrumpe la I/O.
+* Actualizar un par de alta disponibilidad no provoca interrupciones y la I/o se realiza de forma ininterrumpida. Durante este proceso de actualización no disruptiva, cada nodo se actualiza conjuntamente para seguir proporcionando I/o a los clientes.
+
+
+
+
+=== DS3_v2
+
+A partir de la versión 9.9.1, el tipo de máquina virtual DS3_v2 ya no es compatible con sistemas Cloud Volumes ONTAP nuevos y existentes. Si ya tiene un sistema en ejecución en este tipo de equipo virtual, deberá cambiar los tipos de equipos virtuales antes de actualizar a la versión 9.9.1.

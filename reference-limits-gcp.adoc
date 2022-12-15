@@ -1,0 +1,204 @@
+---
+sidebar: sidebar 
+permalink: reference-limits-gcp.html 
+keywords: limits, maximum, storage, aggregates, disks, volumes, capacity, luns, size, storage virtual machine, SVM 
+summary: Cloud Volumes ONTAP tiene límites de configuración de almacenamiento en Google Cloud para proporcionar operaciones fiables. Para obtener el mejor rendimiento, no configure el sistema con los valores máximos. 
+---
+= Límites de almacenamiento en Google Cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP tiene límites de configuración de almacenamiento para proporcionar operaciones fiables. Para obtener el mejor rendimiento, no configure el sistema con los valores máximos.
+
+
+
+== Capacidad máxima del sistema por licencia
+
+La capacidad máxima del sistema para un sistema Cloud Volumes ONTAP viene determinada por su licencia. La capacidad máxima del sistema incluye almacenamiento basado en disco y almacenamiento de objetos utilizado para la organización en niveles de datos.
+
+NetApp no admite superar el límite de capacidad del sistema. Si alcanza el límite de capacidad con licencia, BlueXP muestra un mensaje de acción necesaria y ya no permite añadir discos adicionales.
+
+En algunas configuraciones, los límites de discos impiden que llegue al límite de capacidad usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Consulte los siguientes límites de discos para obtener más información.
+
+[cols="25,75"]
+|===
+| Licencia | Capacidad máxima del sistema (discos + almacenamiento de objetos) 
+
+
+| Freemium | 500 GB 
+
+
+| PAYGO Explora | 2 TB (los datos por niveles no son compatibles con Explore) 
+
+
+| Norma PAYGO | 10 TB 
+
+
+| PAYGO Premium | 368 TB 
+
+
+| Licencia basada en nodos | 368 TB por licencia 
+
+
+| Licencia basada en capacidad | 2 PIB 
+|===
+.En el caso de un par de alta disponibilidad, ¿el límite de capacidad con licencia por nodo o para todo el par de alta disponibilidad?
+El límite de capacidad corresponde a todo el par de alta disponibilidad. No es por nodo. Por ejemplo, si utiliza la licencia Premium, puede tener hasta 368 TB de capacidad entre ambos nodos.
+
+.En el caso de un par de alta disponibilidad, ¿cuentan los datos reflejados con respecto al límite de capacidad con licencia?
+No, no lo hace. Los datos de un par de alta disponibilidad se replican de forma síncrona entre los nodos, de modo que los datos estén disponibles en caso de fallo en Google Cloud. Por ejemplo, si compra un disco de 8 TB en el nodo A, BlueXP también asigna un disco de 8 TB en el nodo B que se utiliza para datos reflejados. Si bien se aprovisionaron 16 TB de capacidad, solo 8 TB se contabiliza respecto al límite de licencia.
+
+
+
+== Límites de discos y organización en niveles
+
+En la siguiente tabla se muestra la capacidad máxima del sistema solo con discos, y con discos y organización en niveles de datos inactivos al almacenamiento de objetos. Los límites de discos son específicos para los discos que contienen datos de usuario. Los límites no incluyen el disco de arranque ni el disco raíz.
+
+[cols="60,40"]
+|===
+| Parámetro | Límite 
+
+
+| Número máximo de discos de datos  a| 
+* 124 para sistemas de un solo nodo
+* 123 por nodo para pares de alta disponibilidad
+
+
+
+
+| Tamaño máximo de disco | 64 TB 
+
+
+| Máxima capacidad del sistema solo con discos | 256 TB HACIA 1 
+
+
+| Capacidad máxima del sistema con discos y organización en niveles de datos inactivos en un bloque de Google Cloud Storage | Depende de la licencia. Consulte la tabla anterior. 
+|===
+Este límite está definido por los límites de la máquina virtual en Google Cloud Platform.
+
+
+
+== Límites del agregado
+
+Cloud Volumes ONTAP agrupa los discos de Google Cloud Platform en _aggregates_. Los agregados proporcionan almacenamiento para volúmenes.
+
+[cols="2*"]
+|===
+| Parámetro | Límite 
+
+
+| Número máximo de agregados de datos 1  a| 
+* 99 para un nodo único
+* 64 para un par de alta disponibilidad completo
+
+
+
+
+| Tamaño máximo de agregado | 256 TB de capacidad bruta en esta versión 2 
+
+
+| Discos por agregado | 1-6 hacia 3 
+
+
+| Número máximo de grupos RAID por agregado | 1 
+|===
+Notas:
+
+. El número máximo de agregados de datos no incluye el agregado raíz.
+. El límite de capacidad del agregado se basa en los discos que componen el agregado. El límite no incluye el almacenamiento de objetos utilizado para la organización en niveles de datos.
+. Todos los discos de un agregado deben tener el mismo tamaño.
+
+
+
+
+== Límites de almacenamiento lógico
+
+[cols="22,22,56"]
+|===
+| Almacenamiento lógico | Parámetro | Límite 
+
+
+| *Almacenamiento de máquinas virtuales (SVM)* | Número máximo para Cloud Volumes ONTAP (pareja de alta disponibilidad o nodo único) | Un SVM que sirve datos y una SVM de destino utilizada para la recuperación ante desastres. Puede activar la SVM de destino para el acceso a los datos si se produce una interrupción en la SVM de origen. Esta 1 la SVM que sirve datos se extiende por todo el sistema Cloud Volumes ONTAP (par de alta disponibilidad o nodo único). 
+
+
+.2+| *Archivos* | Tamaño máximo | 16 TB 
+
+
+| Máximo por volumen | Depende del tamaño del volumen, hasta 2000 millones 
+
+
+| *Volúmenes FlexClone* | Profundidad de clonación jerárquica hacia esta 2 | 499 
+
+
+.3+| *Volúmenes FlexVol* | Máximo por nodo | 500 
+
+
+| Tamaño mínimo | 20 MB 
+
+
+| Tamaño máximo | 100 TB 
+
+
+| *Qtrees* | Máximo por volumen FlexVol | 4,995 
+
+
+| *Copias Snapshot* | Máximo por volumen FlexVol | 1,023 
+|===
+Notas:
+
+. BlueXP no ofrece ninguna compatibilidad de configuración o orquestación para la recuperación ante desastres de SVM. Tampoco admite tareas relacionadas con el almacenamiento en una SVM adicional. Debe usar System Manager o la CLI para la recuperación ante desastres de SVM.
++
+** https://library.netapp.com/ecm/ecm_get_file/ECMLP2839856["Guía exprés de preparación para la recuperación de desastres de SVM"^]
+** https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857["Guía exprés de recuperación ante desastres de SVM"^]
+
+
+. La profundidad de clon jerárquica es la profundidad máxima de una jerarquía anidada de volúmenes FlexClone que se pueden crear a partir de un único volumen de FlexVol.
+
+
+
+
+== Límites de almacenamiento de iSCSI
+
+[cols="3*"]
+|===
+| Almacenamiento iSCSI | Parámetro | Límite 
+
+
+.4+| *LUN* | Máximo por nodo | 1,024 
+
+
+| Número máximo de mapas de LUN | 1,024 
+
+
+| Tamaño máximo | 16 TB 
+
+
+| Máximo por volumen | 512 
+
+
+| *grupos* | Máximo por nodo | 256 
+
+
+.2+| *Iniciadores* | Máximo por nodo | 512 
+
+
+| Máximo por igroup | 128 
+
+
+| *Sesiones iSCSI* | Máximo por nodo | 1,024 
+
+
+.2+| *LIF* | Máximo por puerto | 1 
+
+
+| Máximo por conjunto de puertos | 32 
+
+
+| *Portsets* | Máximo por nodo | 256 
+|===
