@@ -136,5 +136,5 @@ homepage:
       url: https://cloud.netapp.com/events
 product-family:
   name: BlueXP
-  repo: cloud-manager-family
-  sidebar_label: Documentación de All Cloud Manager
+  repo: bluexp-family
+  sidebar_label: Toda la documentación de BlueXP

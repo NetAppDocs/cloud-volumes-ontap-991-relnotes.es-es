@@ -24,7 +24,7 @@ La capacidad máxima del sistema para un sistema Cloud Volumes ONTAP viene deter
 
 NetApp no admite superar el límite de capacidad del sistema. Si alcanza el límite de capacidad con licencia, BlueXP muestra un mensaje de acción necesaria y ya no permite añadir discos adicionales.
 
-En algunas configuraciones, los límites de discos impiden que llegue al límite de capacidad usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Consulte los siguientes límites de discos para obtener más información.
+En algunas configuraciones, los límites de discos impiden que llegue al límite de capacidad usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Consulte los siguientes límites de discos para obtener más información.
 
 [cols="25,75"]
 |===

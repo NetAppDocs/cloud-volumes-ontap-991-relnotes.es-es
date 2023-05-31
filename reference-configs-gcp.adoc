@@ -71,7 +71,7 @@ No se admite la actualización de un sistema de un solo nodo a un par de alta di
 |===
 Notas:
 
-. Los límites de disco pueden impedir que llegue al límite máximo de capacidad del sistema usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^].
+. Los límites de disco pueden impedir que llegue al límite máximo de capacidad del sistema usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^].
 +
 link:reference-limits-gcp.html["Más información acerca de los límites de discos en Google Cloud"].
 
