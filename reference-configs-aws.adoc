@@ -108,7 +108,7 @@ En AWS, un agregado puede contener hasta 6 discos con el mismo tamaño y tipo.
 
 Cada licencia de Cloud Volumes ONTAP admite diferentes tipos de instancias de EC2. Para su comodidad, la siguiente tabla muestra vCPU, RAM y ancho de banda para cada tipo de instancia compatible. https://aws.amazon.com/ec2/instance-types/["Consulte AWS para obtener los detalles completos y más recientes de los tipos de instancia de EC2"^].
 
-Los anchos de banda que se muestran en la tabla siguiente coinciden con los límites de AWS documentados para cada tipo de instancia. Estos límites no están completamente en línea con lo que puede proporcionar Cloud Volumes ONTAP. Para obtener información sobre el rendimiento esperado, consulte https://www.netapp.com/us/media/tr-4383.pdf["Informe técnico de NetApp 4383: Caracterización del rendimiento de Cloud Volumes ONTAP en Amazon Web Services con cargas de trabajo de las aplicaciones"^].
+Los anchos de banda que se muestran en la tabla siguiente coinciden con los límites de AWS documentados para cada tipo de instancia. Estos límites no están completamente en línea con lo que puede proporcionar Cloud Volumes ONTAP. Para conocer el rendimiento esperado, consulte https://www.netapp.com/pdf.html?item=/media/9088-tr4383pdf.pdf["Informe técnico de NetApp 4383: Caracterización del rendimiento de Cloud Volumes ONTAP en Amazon Web Services con cargas de trabajo de las aplicaciones"^].
 
 [cols="8*"]
 |===
