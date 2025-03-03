@@ -44,6 +44,6 @@ Las siguientes limitaciones afectan a los pares de alta disponibilidad de Cloud 
 * NFSv4 no es compatible. NFSv3 es compatible.
 * En algunas regiones no se admiten pares DE HA.
 +
-https://cloud.netapp.com/cloud-volumes-global-regions["Consulte la lista de regiones de Azure admitidas"^]
+https://bluexp.netapp.com/cloud-volumes-global-regions["Consulte la lista de regiones de Azure admitidas"^]
 
 

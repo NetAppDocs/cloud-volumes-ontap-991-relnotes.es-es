@@ -201,4 +201,4 @@ Los anchos de banda que se muestran en la tabla siguiente coinciden con los lím
 
 == Regiones admitidas
 
-Para obtener información sobre compatibilidad con regiones de AWS, consulte https://cloud.netapp.com/cloud-volumes-global-regions["Regiones globales de Cloud Volumes"^].
+Para obtener soporte de región de AWS, consulte https://bluexp.netapp.com/cloud-volumes-global-regions["Regiones globales de Cloud Volumes"^].
